@@ -92,7 +92,7 @@ AFRAME.registerComponent("gaussian_splatting", {
 //		});
 		console.log("Init Tag04");
 
-		const cameraMediaPipe = new Camera(videoElement, {
+		const cameraMediaPipe = new window.Camera(videoElement, {
 		onFrame: this.onFrame.bind(this),
 		width: 640,
 		height: 480
