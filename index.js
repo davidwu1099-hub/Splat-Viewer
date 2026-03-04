@@ -90,7 +90,7 @@ AFRAME.registerComponent("gaussian_splatting", {
 //			this.processing = true;
 //			this.tick(); // start loop
 //		});
-		cameraMediaPipe = new Camera(videoElement, {
+		const cameraMediaPipe = new Camera(videoElement, {
 		onFrame: this.onFrame.bind(this),
 		width: 640,
 		height: 480
