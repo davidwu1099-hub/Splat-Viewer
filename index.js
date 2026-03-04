@@ -90,13 +90,18 @@ AFRAME.registerComponent("gaussian_splatting", {
 //			this.processing = true;
 //			this.tick(); // start loop
 //		});
+		console.log("Init Tag04");
+
 		const cameraMediaPipe = new Camera(videoElement, {
 		onFrame: this.onFrame.bind(this),
 		width: 640,
 		height: 480
 		});
 
+		console.log("Init Tag05");
+
 		cameraMediaPipe.start();
+		console.log("Init Tag06");
 
 	},
 
