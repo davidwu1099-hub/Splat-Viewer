@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/face_mesh.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <a-scene renderer="antialias: false" stats>
+      <!-- Todo: Remove the following line to restore the VR mode-->
+ <a-camera look-controls="enabled: false"></a-camera> 
+<!--        <a-sphere position="0 0 0.5" radius="0.5" color="#EF2D5E"></a-sphere>
+        <a-sphere position="0 0 -0.5" radius="0.5" color="#EF2D5E"></a-sphere>
+      -->  
+      </a-entity>
+
+      <a-entity gaussian_splatting="src: https://huggingface.co/cakewalk/splat-data/resolve/main/train.splat;" rotation="0 0 0" position="0 1.5 -2"></a-entity>
+
+      <!--
+      <a-entity gaussian_splatting="src: ./model.splat;" rotation="180 180 180" position="0 0 0" scale="10 10 10"></a-entity>
+    -->
+      <a-sky color="#000"></a-sky>
+    </a-scene>
+    <video id="video" class="input_video" style="position: absolute; width:320px; height:240px;"></video>
+  </body>
+</html>
