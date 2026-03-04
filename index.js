@@ -84,7 +84,11 @@ AFRAME.registerComponent("gaussian_splatting", {
 
 		this.faceMesh.setOptions(solutionOptions);
 		this.faceMesh.onResults(
-			this.onResults.bind(this));
+//			this.onResults.bind(this)
+async () => {
+		console.log("onResults Tag0");
+//    await this.faceMesh.send({ image: this.videoElement });
+	);
 		console.log("Init Tag3");
 //		this.video.addEventListener('loadeddata', () => {
 //			this.processing = true;
