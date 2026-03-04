@@ -95,7 +95,9 @@ AFRAME.registerComponent("gaussian_splatting", {
 
 		this.cameraMediaPipe = new window.Camera(this.videoElement, {
   onFrame: async () => {
+		console.log("onFrame Tag0");
     await this.faceMesh.send({ image: this.videoElement });
+		console.log("onFrame Tag1");
   },
 		width: 640,
 		height: 480
