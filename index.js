@@ -41,6 +41,8 @@ function onResults(results) {
 //    canvasCtx.restore();
 }
 		console.log("Init Tag02");
+		console.log("Init Tag021");
+		console.log("Init Tag022",config);
 
 const faceMesh = new mpFaceMesh.FaceMesh(config);
 		console.log("Init Tag03");
