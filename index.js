@@ -1,6 +1,54 @@
 console.log("Script loaded");
-		var canvas; //drawing area
-	    var video; //variable for video camera 
+const config = { locateFile: (file) => {
+        return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@` +
+            `${mpFaceMesh.VERSION}/${file}`;
+    } };
+// Our input frames will come from here.
+const videoElement = document.getElementsByClassName('input_video')[0];
+/**
+ * Solution options.
+ */
+const solutionOptions = {
+    selfieMode: true,
+    enableFaceGeometry: false,
+    maxNumFaces: 1,
+    refineLandmarks: false,
+    minDetectionConfidence: 0.5,
+    minTrackingConfidence: 0.5
+};
+// We'll add this to our control panel later, but we'll save it here so we can
+// call tick() each time the graph runs.
+
+
+function onResults(results) {
+    // Hide the spinner.
+    // Update the frame rate.
+//    fpsControl.tick();
+    // Draw the overlays.
+		console.log("onResults Tag00");
+    if (results.multiFaceLandmarks) {
+        for (const landmarks of results.multiFaceLandmarks) {
+            if (solutionOptions.refineLandmarks) {
+		console.log("onResults Tag01");
+            }
+        }
+    }
+    canvasCtx.restore();
+}
+const faceMesh = new mpFaceMesh.FaceMesh(config);
+faceMesh.setOptions(solutionOptions);
+faceMesh.onResults(onResults);
+
+const camera = new Camera(videoElement, {
+  onFrame: async () => {
+    await faceMesh.send({ image: videoElement });
+  },
+  width: 640,
+  height: 480
+});
+
+camera.start();
+
 AFRAME.registerComponent("gaussian_splatting", {
 	schema: {
 		src: {type: 'string', default: "train.splat"},
@@ -29,7 +77,7 @@ AFRAME.registerComponent("gaussian_splatting", {
 			}
 		})
 		console.log("Init Tag0");
-
+/*
 		this.videoElement = document.getElementsByClassName('input_video')[0];
 
 		
@@ -63,16 +111,6 @@ AFRAME.registerComponent("gaussian_splatting", {
 			minTrackingConfidence: 0.5
 		};
 		console.log("Init Tag02");
-/*
-		this.video.classList.toggle('selfie', solutionOptions.selfieMode); // flips video if selfie mode
-
-				console.log("Init Tag03");
-
-		this.faceMesh = new FaceMesh({
-//      		locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`
-     locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/${file}`
-		  });
-*/
 		const config = { locateFile: (file) => {
         	return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@` +
             `${mpFaceMesh.VERSION}/${file}`;
@@ -111,7 +149,7 @@ async () => {
 
 		this.cameraMediaPipe.start();
 		console.log("Init Tag06");
-
+*/
 	},
 
 	onFrame: async function (){
