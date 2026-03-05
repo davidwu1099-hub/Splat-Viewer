@@ -8,7 +8,7 @@ const config = { locateFile: (file) => {
 		console.log("Init Tag001");
 // Our input frames will come from here.
 const videoElement = document.getElementsByClassName('input_video')[0];
-		console.log("Init Tag00");
+		console.log("Init Tag00",videoElement);
 /**
  * Solution options.
  */
