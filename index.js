@@ -1,8 +1,11 @@
 console.log("Script loaded");
+		console.log("Init Tag000");
+const mpFaceMesh = window;
 const config = { locateFile: (file) => {
         return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@` +
             `${mpFaceMesh.VERSION}/${file}`;
     } };
+		console.log("Init Tag001");
 // Our input frames will come from here.
 const videoElement = document.getElementsByClassName('input_video')[0];
 		console.log("Init Tag00");
