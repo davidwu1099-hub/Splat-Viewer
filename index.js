@@ -5,6 +5,7 @@ const config = { locateFile: (file) => {
     } };
 // Our input frames will come from here.
 const videoElement = document.getElementsByClassName('input_video')[0];
+		console.log("Init Tag00");
 /**
  * Solution options.
  */
@@ -19,6 +20,7 @@ const solutionOptions = {
 // We'll add this to our control panel later, but we'll save it here so we can
 // call tick() each time the graph runs.
 
+		console.log("Init Tag01");
 
 function onResults(results) {
     // Hide the spinner.
@@ -33,11 +35,18 @@ function onResults(results) {
             }
         }
     }
-    canvasCtx.restore();
+//    canvasCtx.restore();
 }
+		console.log("Init Tag02");
+
 const faceMesh = new mpFaceMesh.FaceMesh(config);
+		console.log("Init Tag03");
+
 faceMesh.setOptions(solutionOptions);
+		console.log("Init Tag04");
+
 faceMesh.onResults(onResults);
+		console.log("Init Tag05");
 
 const camera = new Camera(videoElement, {
   onFrame: async () => {
@@ -46,8 +55,11 @@ const camera = new Camera(videoElement, {
   width: 640,
   height: 480
 });
+		console.log("Init Tag06");
 
 camera.start();
+
+		console.log("Init Tag07");
 
 AFRAME.registerComponent("gaussian_splatting", {
 	schema: {
