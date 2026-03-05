@@ -55,7 +55,9 @@ faceMesh.onResults(onResults);
 
 const camera = new Camera(videoElement, {
   onFrame: async () => {
+		console.log("onFrame Tag0");
     await faceMesh.send({ image: videoElement });
+		console.log("onFrame Tag1");
   },
   width: 640,
   height: 480
